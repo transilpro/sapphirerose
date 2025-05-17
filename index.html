@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sapphire Rose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;
+      background-color: #000;
+      color: #fff;
+    }
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 600;
+    }
+    .tagline {
+      font-size: 1.5rem;
+      color: #aaa;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3); /* Even darker shadow */
+  }
+
+  .hover\:shadow-x1:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4); /* Even darker hover shadow */
+  }
+  .bg-gray-300 {
+    background-color: #d1d5db; /* Tailwind's gray-300 */
+  }
+
+  .rounded-2xl {
+    border-radius: 1.25rem; /* Tailwind's rounded-2xl */
+  }
+
+  .p-6 {
+    padding: 1.5rem; /* Tailwind's p-6 */
+  }
+
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Tailwind's lg */
+  }
+
+  .hover\:shadow-x1:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* Interpretation of x1 */
+  }
+
+  .transition {
+    transition-property: transform, box-shadow; /* Apply transition to transform and shadow */
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* Lift-up effect on hover */
+  .bg-gray-300:hover {
+    transform: translateY(-0.50rem); /* Move the div up by 0.25rem */
+    box-shadow: 0 50px 100px 0px rgba(0, 0, 0, 0.25); /* Slightly stronger shadow on lift */
+  }
+  </style>
+</head>
+
+<body class="overflow-x-hidden">
+  <!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full px-6 py-4 flex justify-between items-center bg-black bg-opacity-70 z-10">
+  <div class="text-2xl">
+      <h1 class="fade-in font-light tracking-widest" style="font-family: 'Montserrat', sans-serif; letter-spacing: 0.2em">
+    SAPPHIRE ROSE
+  </h1>
+  </div>
+
+  <!-- Desktop Nav -->
+  <ul class="hidden md:flex space-x-6 text-white">
+    <li><a href="index.html" class="hover:underline">Home</a></li>
+    <li><a href="about.html" class="hover:underline">About</a></li>
+    <li><a href="shop.html" class="hover:underline">Shop</a></li>
+    <li><a href="contact.html" class="hover:underline">Contact</a></li>
+  </ul>
+
+  <!-- Hamburger Icon -->
+  <div class="md:hidden">
+    <button id="menu-btn" class="focus:outline-none">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <ul id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black bg-opacity-90 text-white flex flex-col space-y-4 py-6 px-6 md:hidden">
+    <li><a href="index.html" class="hover:underline">Home</a></li>
+    <li><a href="about.html" class="hover:underline">About</a></li>
+    <li><a href="shop.html" class="hover:underline">Shop</a></li>
+    <li><a href="contact.html" class="hover:underline">Contact</a></li>
+  </ul>
+</nav>
+
+
+  <!-- Landing Hero Section -->
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6">
+  <img src="SR logo.jpg" alt="Sapphire Rose Logo" class="w-32 sm:w-48 md:w-64 mb-6 rounded-full fade-in" />
+  
+  <h1 class="fade-in text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-widest" style="font-family: 'Montserrat', sans-serif; letter-spacing: 0.2em">
+    SAPPHIRE ROSE
+  </h1>
+  
+  <p class="tagline mt-4 fade-in text-base sm:text-lg md:text-xl text-gray-400">Faith in Fashion</p>
+  
+  <a href="shop.html" class="mt-10 inline-block px-6 py-3 bg-white text-black rounded-full text-lg fade-in transition hover:bg-gray-200">
+    Shop Now
+  </a>
+</section>
+
+
+  <!-- Product Preview (stub) -->
+  <section id="products" class="min-h-screen bg-gradient-to-r from-red-700 to-blue-800 text-black py-20 px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-semibold">Featured Collection</h2>
+      <p class="mt-2 text-gray-600">Modern Christian Apparel</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Example Product Card -->
+      <div class="bg-gray-300 rounded-2xl p-6 shadow-lg hover:shadow-x1 transition">
+        <img src="wear1.jpg" alt="Shirt" class="w-full rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">Let Your Light Shine Tee</h3>
+        <p class="text-gray-700 mb-4">Premium cotton, bold faith.</p>
+        <a href="faith-tee.html" class="px-5 py-2 bg-black text-white rounded-full">View Product</a>
+      </div>
+    <div class="grid gap-10">
+      <!-- Example Product Card -->
+      <div class="bg-gray-300 rounded-2xl p-6 shadow-lg hover:shadow-x1 transition">
+        <img src="saniii.png" alt="Shirt" class="w-full rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">Sania</h3>
+        <p class="text-gray-700 mb-4">Lovely Human being, Child of God</p>
+        <a href="saniii.html" class="px-5 py-2 bg-black text-white rounded-full">Check out her worth!</a>
+      </div>
+    </div>
+
+    <div class="grid gap-10">
+      <!-- Example Product Card -->
+      <div class="bg-gray-300 rounded-2xl p-6 shadow-lg hover:shadow-x1 transition">
+        <img src="rizzmaster.png" alt="Shirt" class="w-full rounded-xl mb-4">
+        <h3 class="text-xl font-semibold mb-2">Solomon</h3>
+        <p class="text-gray-700 mb-4">The Rizzmaster</p>
+        <button class="px-5 py-2 bg-black text-white rounded-full">Coming Soon, ig???</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-10 px-6 text-center">
+    <p>&copy; 2025 Sapphire Rose. All rights reserved.</p>
+  </footer>
+
+  <script>
+    gsap.to(".fade-in", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.3,
+      ease: "power2.out"
+    });
+  </script>
+
+  <script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+
+</html>
