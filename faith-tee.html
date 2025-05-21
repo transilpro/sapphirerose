@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Faith Over Fear Tee - Sapphire Rose</title>
+  <title>Let Your Light Shine Tee - Sapphire Rose</title>
+  <link rel="icon" href="SR logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
@@ -19,6 +20,16 @@
       background-color: #000;
       color: #fff;
     }
+
+#zoom-view {
+  display: none;
+  background-repeat: no-repeat;
+  background-size: 300%;
+  pointer-events: none;
+}
+
+
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -108,9 +119,11 @@
   <section class="py-24 px-6 bg-white text-black">
     <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
       <!-- Left: Image -->
-      <div class="fade-in">
-        <img src="wear1.jpg" alt="Faith Tee Front" class="rounded-xl shadow-lg w-full">
-      </div>
+<div class="relative group w-full max-w-xl mx-auto" id="zoom-container">
+  <img src="wear1.jpg" alt="Zoomable Tee" id="main-image" class="rounded-xl shadow-lg w-full cursor-zoom-in">
+  <div id="zoom-view" class="absolute top-0 left-full ml-8 w-96 h-96 border border-gray-300 rounded-xl overflow-hidden shadow-lg z-10"></div>
+</div>
+
 
       <!-- Right: Purchase Info -->
       <div class="fade-in space-y-6">
@@ -172,5 +185,33 @@
     mobileMenu.classList.toggle('hidden');
   });
 </script>
+
+<script>
+  const mainImage = document.getElementById('main-image');
+  const zoomView = document.getElementById('zoom-view');
+
+  mainImage.addEventListener('mouseenter', () => {
+    zoomView.style.display = 'block';
+    zoomView.style.backgroundImage = `url('${mainImage.src}')`;
+  });
+
+  mainImage.addEventListener('mousemove', function (e) {
+    const rect = mainImage.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const xPercent = (x / rect.width) * 100;
+    const yPercent = (y / rect.height) * 100;
+
+    zoomView.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+  });
+
+  mainImage.addEventListener('mouseleave', function () {
+    zoomView.style.display = 'none';
+    zoomView.style.backgroundImage = '';
+  });
+</script>
+
+
 </body>
 </html>
